@@ -6,16 +6,16 @@ Bienvenido a la **Rick & Morty SwiftUI App**, una aplicación desarrollada en **
 
 ✅ **Lista de personajes** con imágenes y detalles.
 ✅ **Búsqueda de personajes** por nombre.
-✅ **Filtrado por estado** (vivo, muerto, desconocido).
+✅ **Paginación** en la lista de personajes.
+❌ **Filtrado por estado** (vivo, muerto, desconocido).
 ✅ **Detalle de personaje**, con información detallada.
 ✅ **Navegación fluida** con SwiftUI.
-✅ **Gestión de estado** con Combine.
 ✅ **Arquitectura desacoplada** siguiendo Clean Architecture.
+❌ **Pruebas unitarias** con XCtests.
 
 ## 🛠️ Tecnologías utilizadas
 
 - **SwiftUI** 📱 - UI declarativa para iOS.
-- **Combine** 🔄 - Manejo de eventos y asincronía.
 - **URLSession** 🌐 - Consumo de la API REST.
 - **Codable** 🔄 - Decodificación de JSON.
 - **Async/Await** ⚡ - Llamadas asíncronas modernas.
@@ -60,11 +60,10 @@ let url = URL(string: "https://rickandmortyapi.com/api/character")!
 
 ## 📸 Capturas de pantalla
 
-*(Aquí puedes añadir imágenes de la app funcionando)*
+* Pendiente. 
 
 ## 🏗️ Mejoras futuras
 
-- [ ] Paginación en la lista de personajes.
 - [ ] Modo oscuro.
 - [ ] Favoritos persistentes.
 - [ ] Soporte para episodios y localizaciones.
@@ -72,4 +71,3 @@ let url = URL(string: "https://rickandmortyapi.com/api/character")!
 ## 🤝 Contribución
 
 Si quieres contribuir, ¡adelante! Haz un fork del repositorio y abre un pull request con tus mejoras.
-# rick.and.morty

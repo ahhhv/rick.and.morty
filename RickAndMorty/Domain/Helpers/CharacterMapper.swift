@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class CharacterMapper {
+    func map(characters: [CharacterDTO]) -> [Character] {
+        return characters.map(\.self).toDomain()
+    }
+}

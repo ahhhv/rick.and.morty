@@ -8,11 +8,47 @@
 import SwiftUI
 
 struct DetailView: View {
+    let character: Character
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            AsyncImage(url: URL(string: character.image)) { image in
+                image.resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 150, height: 150)
+                    .clipShape(Circle())
+            } placeholder: {
+                ProgressView()
+            }
+            
+            Text(character.name)
+                .font(.largeTitle)
+                .bold()
+                .padding()
+            
+            Text("Location: \(character.location)")
+                .font(.title2)
+            
+            Text("Gender: \(character.gender)")
+                .font(.title2)
+            
+            Text("Species: \(character.species)")
+                .font(.title2)
+            
+            Text("Origin: \(character.origin)")
+                .font(.title2)
+            
+            Text("Status: \(character.status)")
+                .font(.title2)
+                .foregroundColor(character.status == "Alive" ? .green : .red)
+            
+            Spacer()
+        }
+        .multilineTextAlignment(.center)
+        .padding()
     }
 }
 
 #Preview {
-    DetailView()
+    DetailView(character: Character.mock)
 }
