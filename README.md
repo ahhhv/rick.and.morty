@@ -10,7 +10,7 @@ Bienvenido a la **Rick & Morty SwiftUI App**, una aplicación desarrollada en **
 ✅ **Detalle de personaje**, con información detallada.
 ✅ **Navegación fluida** con SwiftUI.
 ✅ **Arquitectura desacoplada** siguiendo Clean Architecture.
-❌ **Filtrado por estado** (vivo, muerto, desconocido).
+✅ **Filtrado por estado** (vivo, muerto, desconocido).
 ❌ **Pruebas unitarias** con XCtests.
 
 ## 🛠️ Tecnologías utilizadas
@@ -64,7 +64,6 @@ let url = URL(string: "https://rickandmortyapi.com/api/character")!
 
 ## 🏗️ Mejoras futuras
 
-- [ ] Modo oscuro.
 - [ ] Favoritos persistentes.
 - [ ] Soporte para episodios y localizaciones.
 
