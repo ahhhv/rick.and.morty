@@ -22,7 +22,7 @@ struct FiltersView: View {
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
                             .background(viewModel.selectedStatus == status ? Color.blue : Color.gray.opacity(0.3))
-                            .foregroundColor(viewModel.selectedStatus == status ? .white : .black)
+                            .foregroundColor(viewModel.selectedStatus == status ? .white : .secondary)
                             .clipShape(Capsule())
                     }
                 }
