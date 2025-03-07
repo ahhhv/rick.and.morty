@@ -14,6 +14,7 @@ class HomeViewModel: ObservableObject {
     @Published var characters: [Character] = []
     @Published var filteredCharacters: [Character] = []
     @Published var isLoading = false
+    
     @Published var searchText: String = "" {
         didSet {
             Task {
@@ -21,7 +22,15 @@ class HomeViewModel: ObservableObject {
             }
         }
     }
-
+    
+    @Published var selectedStatus: CharacterStatus = .all {
+        didSet {
+            Task {
+                await fetchCharacters(isSearch: !searchText.isEmpty, reset: true)
+            }
+        }
+    }
+    
     init(characterUseCases: CharacterUseCasesProtocol = CharacterUseCases()) {
         self.characterUseCases = characterUseCases
     }
@@ -41,7 +50,9 @@ class HomeViewModel: ObservableObject {
         }
 
         do {
-            let (newCharacters, nextPage) = try await characterUseCases.fetchCharacters(page: nextPage ?? 1, name: isSearch ? searchText : nil)
+            let (newCharacters, nextPage) = try await characterUseCases.fetchCharacters(page: nextPage ?? 1,
+                                                                                        name: isSearch ? searchText : nil,
+                                                                                        status: selectedStatus)
 
             if isSearch {
                 let uniqueFilteredCharacters = newCharacters.filter { newCharacter in

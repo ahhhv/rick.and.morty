@@ -7,10 +7,10 @@ Bienvenido a la **Rick & Morty SwiftUI App**, una aplicación desarrollada en **
 ✅ **Lista de personajes** con imágenes y detalles.
 ✅ **Búsqueda de personajes** por nombre.
 ✅ **Paginación** en la lista de personajes.
-❌ **Filtrado por estado** (vivo, muerto, desconocido).
 ✅ **Detalle de personaje**, con información detallada.
 ✅ **Navegación fluida** con SwiftUI.
 ✅ **Arquitectura desacoplada** siguiendo Clean Architecture.
+❌ **Filtrado por estado** (vivo, muerto, desconocido).
 ❌ **Pruebas unitarias** con XCtests.
 
 ## 🛠️ Tecnologías utilizadas

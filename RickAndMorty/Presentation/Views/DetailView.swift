@@ -38,9 +38,9 @@ struct DetailView: View {
             Text("Origin: \(character.origin)")
                 .font(.title2)
             
-            Text("Status: \(character.status)")
+            Text("Status: \(character.status.rawValue.capitalized)")
                 .font(.title2)
-                .foregroundColor(character.status == "Alive" ? .green : .red)
+                .foregroundColor(character.status == .alive ? .green : .red)
             
             Spacer()
         }

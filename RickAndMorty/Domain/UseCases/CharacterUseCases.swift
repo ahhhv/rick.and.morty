@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CharacterUseCasesProtocol {
-    func fetchCharacters(page: Int, name: String?) async throws -> ([Character], nextPage: Int?)
+    func fetchCharacters(page: Int, name: String?, status: CharacterStatus?) async throws -> ([Character], nextPage: Int?)
     func fetchCharacter(id: Int) async throws -> Character
 }
 
@@ -22,8 +22,8 @@ class CharacterUseCases: CharacterUseCasesProtocol {
         self.characterMapper = characterMapper
     }
     
-    func fetchCharacters(page: Int, name: String?) async throws -> ([Character], nextPage: Int?) {
-        let result = try await apiRepository.fetchCharacters(page: page, name: name)
+    func fetchCharacters(page: Int, name: String?, status: CharacterStatus?) async throws -> ([Character], nextPage: Int?) {
+        let result = try await apiRepository.fetchCharacters(page: page, name: name, status: status)
         let charactersDomain = characterMapper.map(characters: result.0)
         let nextPage = result.1
         return (charactersDomain, nextPage)

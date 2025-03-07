@@ -8,7 +8,7 @@
 import Foundation
 
 protocol APIRepositoryProtocol {
-    func fetchCharacters(page: Int, name: String?) async throws -> ([CharacterDTO], nextPage: Int?)
+    func fetchCharacters(page: Int, name: String?, status: CharacterStatus?) async throws -> ([CharacterDTO], nextPage: Int?)
     func fetchCharacter(id: Int) async throws -> CharacterDTO
 }
 
@@ -19,12 +19,16 @@ class APIRepository: APIRepositoryProtocol {
         self.apiClient = apiClient
     }
     
-    func fetchCharacters(page: Int, name: String?) async throws -> ([CharacterDTO], nextPage: Int?) {
+    func fetchCharacters(page: Int, name: String?, status: CharacterStatus?) async throws -> ([CharacterDTO], nextPage: Int?) {
         var url = APIEndpoints.Character.list(page: page)
         
         if let name = name, !name.isEmpty {
             let queryName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
             url += "&name=\(queryName)"
+        }
+        
+        if let status = status?.apiValue {
+            url += "&status=\(status)"
         }
         
         let response: CharacterListDTO = try await apiClient.fetch(url: url)

@@ -10,7 +10,7 @@ import Foundation
 struct Character: Identifiable {
     let id: Int
     let name: String
-    let status: String
+    let status: CharacterStatus
     let species: String
     let type: String?
     let gender: String
@@ -19,10 +19,10 @@ struct Character: Identifiable {
     let image: String
     let episode: [String]
 
-    init(id: Int, name: String, status: String, species: String, type: String?, gender: String, origin: String, location: String, image: String, episode: [String]) {
+    init(id: Int, name: String, status: CharacterStatus, species: String, type: String?, gender: String, origin: String, location: String, image: String, episode: [String]) {
         self.id = id
         self.name = name
-        self.status = status.capitalized
+        self.status = status
         self.species = species
         self.type = type
         self.gender = gender.capitalized
@@ -35,7 +35,7 @@ struct Character: Identifiable {
     static let mock: Character = .init(
         id: 1,
         name: "Rick Sánchez",
-        status: "Alive",
+        status: .alive,
         species: "Human",
         type: nil,
         gender: "Male",

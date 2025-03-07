@@ -16,6 +16,8 @@ struct HomeView: View {
 
     var body: some View {
         NavigationStack {
+            FiltersView(viewModel: viewModel)
+            
             List {
                 ForEach(viewModel.displayedCharacters, id: \.id) { character in
                     NavigationLink(destination: DetailView(character: character)) {
@@ -48,4 +50,3 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
-

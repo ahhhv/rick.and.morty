@@ -37,9 +37,9 @@ struct CharacterRow: View {
             VStack(alignment: .leading) {
                 Text(character.name)
                     .font(.headline)
-                Text(character.status)
+                Text(character.status.rawValue.capitalized)
                     .font(.subheadline)
-                    .foregroundColor(character.status == "Alive" ? .green : .red)
+                    .foregroundColor(character.status == .alive ? .green : .red)
             }
         }
     }

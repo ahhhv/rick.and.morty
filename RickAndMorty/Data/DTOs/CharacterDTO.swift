@@ -35,7 +35,7 @@ struct CharacterDTO: Codable {
         return Character(
             id: id,
             name: name,
-            status: status,
+            status: CharacterStatus(rawValue: status) ?? .unknown,
             species: species,
             type: type ?? "",
             gender: gender,
@@ -44,6 +44,19 @@ struct CharacterDTO: Codable {
             image: image,
             episode: episode
         )
+    }
+}
+
+enum CharacterStatus: String, CaseIterable, Identifiable {
+    case all = "All"
+    case alive = "Alive"
+    case dead = "Dead"
+    case unknown = "unknown"
+
+    var id: String { self.rawValue }
+
+    var apiValue: String? {
+        self == .all ? nil : rawValue.lowercased()
     }
 }
 
