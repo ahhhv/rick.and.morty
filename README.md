@@ -11,6 +11,7 @@ Bienvenido a la **Rick & Morty SwiftUI App**, una aplicación desarrollada en **
 ✅ **Navegación fluida** con SwiftUI.
 ✅ **Arquitectura desacoplada** siguiendo Clean Architecture.
 ✅ **Filtrado por estado** (vivo, muerto, desconocido).
+❌ **Manejo de errores**.
 ❌ **Pruebas unitarias** con XCtests.
 
 ## 🛠️ Tecnologías utilizadas
